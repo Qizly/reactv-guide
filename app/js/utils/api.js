@@ -1,4 +1,5 @@
 import axios from 'axios';
+import AppActionCreators from '../actions/app-actions';
 
 const baseUrl = 'http://api.tvmaze.com';
 
@@ -19,7 +20,13 @@ function transformShowData(show) {
   }
 }
 
-export function getAllShows() {
+function reportError(error) {
+  console.error(error);
+}
+
+export function getDailySchedule() {
   return getData('/schedule')
-    .then(response => response.data.map(transformShowData));
+    .then(response => response.data.map(transformShowData))
+    .then(shows => AppActionCreators.receiveShows(shows))
+    .catch(error => reportError(error));
 }
