@@ -1,28 +1,37 @@
 import React from 'react';
 import ScheduleListHeader from './schedule-list-header.jsx';
 import ScheduleListItem from './schedule-list-item.jsx';
-import AppStore from '../../stores/app-store';
+import ShowsAction from '../../actions/shows-actions';
+import ShowsStore from '../../stores/shows-store';
+import LoadingIndicator from '../common/loading-indicator.jsx';
 
-class ShowListing extends React.Component {
+class ScheduleList extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = { shows: [] };
+    this.state = {
+      shows: [],
+      isLoading: false
+    };
 
     this._onChange = this._onChange.bind(this);
   }
 
   componentDidMount() {
-    AppStore.addChangeListener(this._onChange);
+    ShowsAction.getDailySchedule('');
+    ShowsStore.addChangeListener(this._onChange);
+    this.setState({ isLoading: true });
   }
 
   componentWillUnmount() {
-    AppStore.removeChangeListener(this._onChange);
+    ShowsStore.removeChangeListener(this._onChange);
   }
 
   _onChange() {
-    this.setState({ shows: AppStore.getShows() });
-    this.props.setLoadingIndicator(false);
+    this.setState({
+      shows: ShowsStore.getShows(),
+      isLoading: false
+    });
   }
 
   handleClick(id) {
@@ -35,6 +44,7 @@ class ShowListing extends React.Component {
       info={showInfo}
       key={showInfo.id}
       handleClick={this.handleClick} />));
+    let loadingIndicator = this.state.isLoading ? <LoadingIndicator /> : null;
 
     return (
       <div className="schedule-list">
@@ -42,9 +52,10 @@ class ShowListing extends React.Component {
         <div>
           {showsItems}
         </div>
+        {loadingIndicator}
       </div>
     );
   }
 }
 
-export default ShowListing;
+export default ScheduleList;

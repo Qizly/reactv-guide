@@ -1,36 +1,20 @@
 import React from 'react';
 import ScheduleList from './schedule-list/schedule-list.jsx';
-import Header from './common/header.jsx';
-import Sidebar from './common/sidebar.jsx';
-import LoadingIndicator from './common/loading-indicator.jsx';
+import Favorites from './favorites/favorites.jsx'
+import People from './people/people.jsx';
+import Template from './template';
+import { Router, Route, IndexRoute, hashHistory } from 'react-router';
 
-class App extends React.Component {
-  constructor() {
-    super();
-
-    this.state = { isLoading: true };
-
-    this.setLoadingIndicator = this.setLoadingIndicator.bind(this);
-  }
-
-  setLoadingIndicator(loaderState) {
-    this.setState({ isLoading: loaderState });
-  }
-
-  render() {
-    let loader = this.state.isLoading ? <LoadingIndicator /> : null;
-
-    return (
-      <div>
-        <Header />
-        {loader}
-        <div className="wrapper">
-          <Sidebar />
-          <ScheduleList setLoadingIndicator={this.setLoadingIndicator} />
-        </div>
-      </div>
-    )
-  }
-}
+const App = () => {
+  return (
+    <Router history={hashHistory}>
+      <Route path="/" component={Template}>
+        <IndexRoute component={ScheduleList} />
+        <Route path="favorites" component={Favorites} />
+        <Route path="people" component={People} />
+      </Route>
+    </Router>
+  );
+};
 
 export default App;
