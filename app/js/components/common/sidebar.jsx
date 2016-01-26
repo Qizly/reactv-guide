@@ -13,6 +13,11 @@ class Sidebar extends React.Component {
 
   }
 
+  _onClick(pathname) {
+    console.log('sidebar clicked');
+    this.context.router.push(pathname);
+  }
+
   getNavItemBGColor(locationPathname, navItemPathname) {
     return locationPathname === navItemPathname ? {backgroundColor: 'rgba(0,0,0,0.2)'} : null;
   }
@@ -25,14 +30,18 @@ class Sidebar extends React.Component {
       <LeftNav open={true} style={{width: 256, paddingTop:'90px', zIndex:1100}}>
         <div>
           <List>
-            <ListItem primaryText="Daily Schedule" style={this.getNavItemBGColor(pathname, '/')} />
-            <ListItem primaryText="Favorite Shows" style={this.getNavItemBGColor(pathname, '/favorites')} />
-            <ListItem primaryText="People" style={this.getNavItemBGColor(pathname, '/people')} />
+            <ListItem primaryText="Daily Schedule" style={this.getNavItemBGColor(pathname, '/')} onClick={this._onClick.bind(this, '/')} />
+            <ListItem primaryText="Favorite Shows" style={this.getNavItemBGColor(pathname, '/favorites')} onClick={this._onClick.bind(this, '/favorites')} />
+            <ListItem primaryText="People" style={this.getNavItemBGColor(pathname, '/people')} onClick={this._onClick.bind(this, '/people')} />
           </List>
         </div>
       </LeftNav>
     );
   }
 }
+
+Sidebar.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default Sidebar

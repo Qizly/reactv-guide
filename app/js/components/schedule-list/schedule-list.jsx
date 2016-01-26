@@ -4,6 +4,7 @@ import ScheduleListItem from './schedule-list-item.jsx';
 import ShowsAction from '../../actions/shows-actions';
 import ShowsStore from '../../stores/shows-store';
 import LoadingIndicator from '../common/loading-indicator.jsx';
+import {browserHistory} from 'react-router'
 
 class ScheduleList extends React.Component {
   constructor(props) {
@@ -15,6 +16,7 @@ class ScheduleList extends React.Component {
     };
 
     this._onChange = this._onChange.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -35,7 +37,7 @@ class ScheduleList extends React.Component {
   }
 
   handleClick(id) {
-    console.log(id);
+    this.context.router.push(`/show/${id}`);
   }
 
   render() {
@@ -57,5 +59,9 @@ class ScheduleList extends React.Component {
     );
   }
 }
+
+ScheduleList.contextTypes = {
+  router: React.PropTypes.object.isRequired
+};
 
 export default ScheduleList;
