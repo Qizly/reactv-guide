@@ -1,10 +1,8 @@
 import React from 'react';
-//import AppStore from '../stores/app-store';
-import ScheduleList from './schedule-list.jsx';
-import Header from './header.jsx';
-//import AppBar from 'material-ui/lib/app-bar';
-import Sidebar from './sidebar.jsx';
-import CircularProgress from 'material-ui/lib/circular-progress';
+import ScheduleList from './schedule-list/schedule-list.jsx';
+import Header from './common/header.jsx';
+import Sidebar from './common/sidebar.jsx';
+import LoadingIndicator from './common/loading-indicator.jsx';
 
 class App extends React.Component {
   constructor() {
@@ -20,7 +18,8 @@ class App extends React.Component {
   }
 
   render() {
-    let loader = this.state.isLoading ? <CircularProgress mode="indeterminate" color="white" size={0.8} style={{position:'fixed', zIndex:1200, top:4, left: '50%', marginLeft:'-25px'}}/> : null;
+    let loader = this.state.isLoading ? <LoadingIndicator /> : null;
+
     return (
       <div>
         <Header />

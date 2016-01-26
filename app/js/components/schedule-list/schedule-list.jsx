@@ -1,7 +1,7 @@
 import React from 'react';
 import ScheduleListHeader from './schedule-list-header.jsx';
 import ScheduleListItem from './schedule-list-item.jsx';
-import AppStore from '../stores/app-store';
+import AppStore from '../../stores/app-store';
 
 class ShowListing extends React.Component {
   constructor(props) {
