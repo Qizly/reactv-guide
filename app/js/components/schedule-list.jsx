@@ -1,46 +1,30 @@
 import React from 'react';
-import * as Api from '../utils/api';
-import AppStore from '../stores/app-store';
-
-const Show = ({info}) =>
-  <div className="flex">
-    <div>{info.airstamp.toLocaleTimeString()}</div>
-    <div>{info.name}</div>
-    <div>{info.network}</div>
-    <div>{info.summary}</div>
-  </div>;
-
-function getPrograms() {
-  return { programs: AppStore.getPrograms }
-}
+import ScheduleListHeader from './schedule-list-header.jsx';
+import ScheduleListItem from './schedule-list-item.jsx';
 
 class ShowListing extends React.Component {
   constructor(props) {
     super(props);
 
-    //this.state = {
-    //  showInfos: []
-    //};
   }
 
-  componentDidMount() {
-    //const self = this;
-    //Api.getAllShows()
-    //  .then(function(response) {
-    //    self.setState({ showInfos: response });
-    //  })
-    //  .catch(function(error) {
-    //    console.log(error);
-    //  });
+  handleClick(id) {
+    console.log(id);
   }
 
   render() {
     let {shows, ...props} = this.props;
-    let showsItems = shows.map(showInfo => <Show info={showInfo} key={showInfo.id} />);
+    let showsItems = shows.map(showInfo => (<ScheduleListItem
+      info={showInfo}
+      key={showInfo.id}
+      handleClick={this.handleClick} />));
 
     return (
-      <div>
-        {showsItems}
+      <div className="schedule-list">
+        <ScheduleListHeader />
+        <div>
+          {showsItems}
+        </div>
       </div>
     );
   }

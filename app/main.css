@@ -4,10 +4,52 @@ html {
 
 body {
     margin: 0;
-    font-size: 13px;
-    line-height: 20px;
+    line-height: 1.5;
 }
 
 .flex {
     display: flex;
+}
+
+.schedule-list {
+    margin: 100px 30px 20px 300px;
+    font-size: 13px;
+}
+
+.show-list-header div,
+.show-list-item div {
+    padding-right: 20px;
+}
+
+.show-list-header-time,
+.show-list-item-time {
+    width: 10%;
+}
+
+.show-list-header-name,
+.show-list-item-name {
+    width: 25%;
+}
+
+.show-list-header-thumbnail,
+.show-list-item-thumbnail {
+    width: 10%;
+}
+
+.show-list-header-network,
+.show-list-item-network {
+    width: 15%;
+}
+
+.show-list-header-summary,
+.show-list-item-summary {
+    width: 35%;
+}
+
+.show-list-item-thumbnail-image {
+    width: 100%;
+}
+
+.hover {
+    background-color: #f6f6f6;
 }
