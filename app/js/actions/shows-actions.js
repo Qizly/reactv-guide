@@ -1,5 +1,4 @@
 import AppConstants from '../constants/app-constants';
-//import {dispatch, register} from '../dispatchers/app-dispatcher';
 import AppDispatcher from '../dispatchers/app-dispatcher';
 import {getDailySchedule} from '../utils/api';
 
@@ -13,7 +12,7 @@ export default {
   receiveShows(shows) {
     AppDispatcher.dispatch({
       type: ActionTypes.RECEIVE_SHOWS,
-      shows: shows
+      shows
     });
   }
 };

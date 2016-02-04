@@ -7,16 +7,27 @@ function getData(path, params = {}) {
   return axios.get(baseUrl + path, params);
 }
 
+function addAmPm(time) {
+  // convert 13:30 to 1:30am
+
+}
+
 function transformShowData(show) {
+  //debugger;
+  console.log(show);
+
   return {
     name: show.show.name,
     type: show.show.type,
-    airstamp: new Date(show.airstamp),
+    airtime: show.airtime,
     image: show.show.image ? show.show.image.medium : null,
     schedule: show.show.schedule,
     network: show.show.network.name,
     summary: show.show.summary.replace(/<\/?[^>]+(>|$)/g, ""),
-    id: show.id
+    id: show.id,
+    runtime: show.show.runtime,
+    showId: show.show.id,
+    schedule: show.show.schedule
   }
 }
 

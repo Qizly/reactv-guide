@@ -13,13 +13,13 @@ class ScheduleListItem extends React.Component {
     this._onMouseOut = this._onMouseOut.bind(this);
   }
 
-  _onMouseOver() {
+  _onMouseOver = () => {
     this.setState({ hovered: true });
-  }
+  };
 
-  _onMouseOut() {
+  _onMouseOut = () => {
     this.setState({ hovered: false });
-  }
+  };
 
   render() {
     let {info, handleClick} = this.props;
@@ -33,8 +33,8 @@ class ScheduleListItem extends React.Component {
       <div className={classes}
            onMouseOver={this._onMouseOver}
            onMouseOut={this._onMouseOut}
-           onClick={handleClick.bind(null, info.id)} >
-        <div className="show-list-item-time">{info.airstamp.toLocaleTimeString()}</div>
+           onClick={handleClick.bind(null, info.showId)} >
+        <div className="show-list-item-time">{info.airtime}</div>
         <div className="show-list-item-name">{info.name}</div>
         <div className="show-list-item-thumbnail">
           <img className="show-list-item-thumbnail-image" src={info.image} />

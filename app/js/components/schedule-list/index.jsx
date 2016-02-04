@@ -7,16 +7,13 @@ import LoadingIndicator from '../common/loading-indicator.jsx';
 import {browserHistory} from 'react-router'
 
 class ScheduleList extends React.Component {
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
     this.state = {
       shows: [],
       isLoading: false
     };
-
-    this._onChange = this._onChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
@@ -29,16 +26,16 @@ class ScheduleList extends React.Component {
     ShowsStore.removeChangeListener(this._onChange);
   }
 
-  _onChange() {
+  _onChange = () => {
     this.setState({
       shows: ShowsStore.getShows(),
       isLoading: false
     });
-  }
+  };
 
-  handleClick(id) {
-    this.context.router.push(`/show/${id}`);
-  }
+  handleClick = (showId) => {
+    this.context.router.push(`/show/${showId}`);
+  };
 
   render() {
     let shows = this.state.shows;
@@ -49,7 +46,7 @@ class ScheduleList extends React.Component {
     let loadingIndicator = this.state.isLoading ? <LoadingIndicator /> : null;
 
     return (
-      <div className="schedule-list">
+      <div className="main">
         <ScheduleListHeader />
         <div>
           {showsItems}

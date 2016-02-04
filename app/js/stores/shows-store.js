@@ -7,15 +7,14 @@ const ActionTypes = AppConstants.ActionTypes;
 const CHANGE_EVENT = 'change';
 
 let _shows = [];
+let show = null;
 
 const ShowStore = assign({}, EventEmitter.prototype, {
   emitChange: function() {
-    //console.log('emitting change...');
     this.emit(CHANGE_EVENT);
   },
 
   addChangeListener(callback) {
-    //console.log('added...');
     this.on(CHANGE_EVENT, callback);
   },
 
@@ -25,6 +24,10 @@ const ShowStore = assign({}, EventEmitter.prototype, {
 
   getShows() {
     return _shows;
+  },
+
+  getShowInfo(showId) {
+    return _shows.find(show => show.showId == showId);
   }
 });
 
@@ -33,6 +36,7 @@ ShowStore.dispatchToken = AppDispatcher.register(function(action) {
     case ActionTypes.RECEIVE_SHOWS:
       _shows = action.shows;
       ShowStore.emitChange();
+      break;
   }
 });
 

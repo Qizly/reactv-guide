@@ -10,18 +10,12 @@ const Header = ({title}) => (
   />
 );
 
-//
-//class Header extends React.Component {
-//  render() {
-//    return (
-//      <AppBar
-//        title="ReacTV Guide"
-//        className="app-bar"
-//        showMenuIconButton={false}
-//        style={{position:'fixed', top:0, zIndex:1101, boxShadow:'none'}}
-//      />
-//    );
-//  }
-//}
+Header.propTypes = {
+  title: React.PropTypes.string
+};
+
+Header.defaultProps = {
+  title: 'Title'
+};
 
 export default Header;

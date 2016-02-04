@@ -14,7 +14,6 @@ class Sidebar extends React.Component {
   }
 
   _onClick(pathname) {
-    console.log('sidebar clicked');
     this.context.router.push(pathname);
   }
 
@@ -25,7 +24,7 @@ class Sidebar extends React.Component {
   render() {
     let {location} = this.props;
     let pathname = location.pathname;
-    console.log('Path = ', pathname);
+
     return (
       <LeftNav open={true} style={{width: 256, paddingTop:'90px', zIndex:1100}}>
         <div>
@@ -42,6 +41,10 @@ class Sidebar extends React.Component {
 
 Sidebar.contextTypes = {
   router: React.PropTypes.object.isRequired
+};
+
+Sidebar.propTypes = {
+  location: React.PropTypes.object.isRequired
 };
 
 export default Sidebar

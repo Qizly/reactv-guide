@@ -11,9 +11,9 @@ body {
     display: flex;
 }
 
-.schedule-list {
+.main {
     margin: 100px 30px 20px 300px;
-    font-size: 13px;
+    /*font-size: 13px;*/
 }
 
 .show-list-header div,
@@ -52,4 +52,10 @@ body {
 
 .hover {
     background-color: #f6f6f6;
+    cursor: pointer;
+}
+
+.show-content {
+    display: flex;
+    flex-direction: column;
 }
