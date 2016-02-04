@@ -15,4 +15,9 @@ const AppTemplate = ({location, children}) => {
   );
 };
 
+AppTemplate.propTypes = {
+  location: React.PropTypes.object.isRequired,
+  children: React.PropTypes.object.isRequired
+};
+
 export default AppTemplate;

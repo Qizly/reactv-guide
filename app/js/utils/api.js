@@ -22,9 +22,6 @@ function converToAmPm(time) {
 }
 
 function transformShowData(show) {
-  //debugger;
-  console.log(show);
-
   return {
     name: show.show.name,
     type: show.show.type,

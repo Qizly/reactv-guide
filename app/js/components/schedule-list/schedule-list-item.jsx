@@ -8,9 +8,6 @@ class ScheduleListItem extends React.Component {
     this.state = {
       hovered: false
     };
-
-    this._onMouseOver = this._onMouseOver.bind(this);
-    this._onMouseOut = this._onMouseOut.bind(this);
   }
 
   _onMouseOver = () => {
@@ -43,5 +40,10 @@ class ScheduleListItem extends React.Component {
     );
   }
 }
+
+ScheduleListItem.propTypes = {
+  info: React.PropTypes.object.isRequired,
+  handleClick: React.PropTypes.func.isRequired
+};
 
 export default ScheduleListItem;
