@@ -31,7 +31,6 @@ class Show extends React.Component {
             <div><strong>Summary:</strong> {this.state.showInfo.summary}</div>
           </section>
         </div>
-
       </div>) : null;
 
     return (

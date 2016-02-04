@@ -1,5 +1,5 @@
-import AppConstants from '../constants/app-constants';
-import AppDispatcher from '../dispatchers/app-dispatcher';
+import AppConstants from '../constants/shows-constants';
+import AppDispatcher from '../dispatchers/shows-dispatcher';
 import {EventEmitter} from 'events';
 import assign from 'object-assign';
 
