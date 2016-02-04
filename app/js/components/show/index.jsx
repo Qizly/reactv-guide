@@ -19,16 +19,18 @@ class Show extends React.Component {
   render() {
     let show = this.state.showInfo ? (
       <div>
-        <h2>{this.state.showInfo.name}</h2>
+        <h2 className="show-title">{this.state.showInfo.name}</h2>
         <div style={{display:'flex'}}>
-          <img src={this.state.showInfo.image} />
+          <div>
+            <img src={this.state.showInfo.image} />
+          </div>
           <section className="show-content">
             <div>{this.state.showInfo.time}</div>
-            <div><strong>Network:</strong> {this.state.showInfo.network}</div>
-            <div><strong>Time:</strong> {this.state.showInfo.schedule.time}</div>
-            <div><strong>Run Days:</strong> {this.state.showInfo.schedule.days.join(', ')}</div>
-            <div><strong>Duration:</strong> {this.state.showInfo.runtime} minutes</div>
-            <div><strong>Summary:</strong> {this.state.showInfo.summary}</div>
+            <div><span className="show-param-title">Network:</span> {this.state.showInfo.network}</div>
+            <div><span className="show-param-title">Time:</span> {this.state.showInfo.airtime}</div>
+            <div><span className="show-param-title">Run Days:</span> {this.state.showInfo.schedule.days.join(', ')}</div>
+            <div><span className="show-param-title">Duration:</span> {this.state.showInfo.runtime} minutes</div>
+            <div><span className="show-param-title">Summary:</span> {this.state.showInfo.summary}</div>
           </section>
         </div>
       </div>) : null;

@@ -7,9 +7,18 @@ function getData(path, params = {}) {
   return axios.get(baseUrl + path, params);
 }
 
-function addAmPm(time) {
-  // convert 13:30 to 1:30am
+function converToAmPm(time) {
+  let timeArr = time.split(':');
+  let hour = parseInt(timeArr[0]);
+  let mins = timeArr[1];
 
+  if (hour > 12) {
+    return (hour % 12) + ':' + mins + 'pm'
+  } else if (hour === 12) {
+    return '12:' + mins + 'pm';
+  } else {
+    return hour + ':' + mins + 'am';
+  }
 }
 
 function transformShowData(show) {
@@ -19,7 +28,7 @@ function transformShowData(show) {
   return {
     name: show.show.name,
     type: show.show.type,
-    airtime: show.airtime,
+    airtime: converToAmPm(show.airtime),
     image: show.show.image ? show.show.image.medium : null,
     schedule: show.show.schedule,
     network: show.show.network.name,

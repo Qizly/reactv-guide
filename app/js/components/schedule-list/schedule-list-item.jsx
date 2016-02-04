@@ -36,9 +36,7 @@ class ScheduleListItem extends React.Component {
            onClick={handleClick.bind(null, info.showId)} >
         <div className="show-list-item-time">{info.airtime}</div>
         <div className="show-list-item-name">{info.name}</div>
-        <div className="show-list-item-thumbnail">
-          <img className="show-list-item-thumbnail-image" src={info.image} />
-        </div>
+        <div className="show-list-item-duration">{info.runtime} mins</div>
         <div className="show-list-item-network">{info.network}</div>
         <div className="show-list-item-summary">{info.summary}</div>
       </div>
