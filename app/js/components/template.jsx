@@ -6,7 +6,7 @@ import Sidebar from './common/sidebar.jsx';
 const AppTemplate = ({location, children}) => {
   return (
     <div>
-      <Header title="ReactTV Guide" />
+      <Header title="ReacTV Guide" />
       <div className="wrapper">
         <Sidebar location={location}/>
         {children}
