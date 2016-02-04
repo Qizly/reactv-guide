@@ -1,3 +1,7 @@
+/*
+ * Favorites component to come later
+ */
+
 import React from 'react';
 
 class Favorites extends React.Component {

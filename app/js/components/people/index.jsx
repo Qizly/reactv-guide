@@ -1,3 +1,7 @@
+/*
+ * People component to come later
+ */
+
 import React from 'react';
 
 class People extends React.Component {
