@@ -7,6 +7,7 @@ const ScheduleListHeader = () => (
     <div className="show-list-header-duration">Duration</div>
     <div className="show-list-header-network">Network</div>
     <div className="show-list-header-summary">Summary</div>
+    <div className="show-list-header-favorite">Favorite</div>
   </div>);
 
 export default ScheduleListHeader;

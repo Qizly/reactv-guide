@@ -28,6 +28,10 @@ const ShowStore = assign({}, EventEmitter.prototype, {
 
   getShowInfo(showId) {
     return _shows.find(show => show.showId == showId);
+  },
+
+  favoriteAShow(showId) {
+    _shows.find(show => show.showId == showId)
   }
 });
 
@@ -37,6 +41,9 @@ ShowStore.dispatchToken = AppDispatcher.register(function(action) {
       _shows = action.shows;
       ShowStore.emitChange();
       break;
+
+    case ActionTypes.FAVORITE_A_SHOW:
+
   }
 });
 

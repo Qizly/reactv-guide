@@ -19,7 +19,7 @@ class ScheduleListItem extends React.Component {
   };
 
   render() {
-    let {info, handleClick} = this.props;
+    let {info, handleClick, handleFavoriteClick} = this.props;
     let classes = classNames({
       'flex': true,
       'show-list-item': true,
@@ -36,6 +36,8 @@ class ScheduleListItem extends React.Component {
         <div className="show-list-item-duration">{info.runtime} mins</div>
         <div className="show-list-item-network">{info.network}</div>
         <div className="show-list-item-summary">{info.summary}</div>
+        <div className="show-list-item-favorite"
+             onClick={handleFavoriteClick.bind(null, info.showId)}>Favorite</div>
       </div>
     );
   }
@@ -43,7 +45,8 @@ class ScheduleListItem extends React.Component {
 
 ScheduleListItem.propTypes = {
   info: React.PropTypes.object.isRequired,
-  handleClick: React.PropTypes.func.isRequired
+  handleClick: React.PropTypes.func.isRequired,
+  handleFavoriteClick: React.PropTypes.func.isRequired
 };
 
 export default ScheduleListItem;

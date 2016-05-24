@@ -37,12 +37,18 @@ class ScheduleList extends React.Component {
     this.context.router.push(`/show/${showId}`);
   };
 
+  handleFavoriteClick = (showId, e) => {
+    e.stopPropagation();
+  };
+
   render() {
     let shows = this.state.shows;
     let showsItems = shows.map(showInfo => (<ScheduleListItem
       info={showInfo}
       key={showInfo.id}
-      handleClick={this.handleClick} />));
+      handleClick={this.handleClick}
+      handleFavoriteClick={this.handleFavoriteClick}
+    />));
     let loadingIndicator = this.state.isLoading ? <LoadingIndicator /> : null;
 
     return (

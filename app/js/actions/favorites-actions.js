@@ -1,12 +1,14 @@
 import AppConstants from '../constants/shows-constants';
 import AppDispatcher from '../dispatchers/shows-dispatcher';
-import {getDailySchedule} from '../utils/api';
+//import {getDailySchedule} from '../utils/api';
 
 var ActionTypes = AppConstants.ActionTypes;
 
 export default {
-  getDailySchedule(date) {
-    getDailySchedule();
+  receiveFavorites(favorites) {
+    AppDispatcher.dispatch({
+
+    })
   },
 
   receiveShows(shows) {
